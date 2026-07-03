@@ -1,0 +1,89 @@
+# SocialAgent — CLIENT stack. Pulls pre-built images from GHCR; NO source code
+# on the client machine. This file + .env are the only things a client needs.
+#
+#   1) copy this file + .env.client.example -> .env, set SOCIALAGENT_VERSION
+#   2) docker compose -f docker-compose.client.yml up -d
+#   Dashboard: http://localhost:5174 · login window: http://localhost:7900/vnc.html
+#
+# Update  = ./deploy/update.sh <version>  (pins new tag, recreates, saves prev)
+# Rollback= ./deploy/update.sh rollback
+#
+# All three app images share ${SOCIALAGENT_VERSION} so the UI and worker always
+# match. User secrets (Anthropic key, email creds, logins) are entered in-app
+# and stored ENCRYPTED in the named volumes below — never in an image.
+
+services:
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: social-agent-ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_KV_CACHE_TYPE=q8_0
+      - OLLAMA_FLASH_ATTENTION=1
+      - OLLAMA_NUM_CTX=32768
+      - OLLAMA_KEEP_ALIVE=-1
+    entrypoint: >
+      /bin/sh -c "
+        ollama serve &
+        until curl -sf http://localhost:11434/api/tags > /dev/null 2>&1; do sleep 2; done;
+        ollama list | grep -q 'qwen3:8b-q4_K_M' || ollama pull qwen3:8b-q4_K_M;
+        ollama list | grep -q 'gemma4:e4b' || ollama pull gemma4:e4b;
+        wait
+      "
+    restart: unless-stopped
+    # NVIDIA GPU: uncomment (needs NVIDIA Container Toolkit).
+    # deploy:
+    #   resources: { reservations: { devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }] } }
+
+  browser-worker:
+    image: ${IMAGE_REPO:-ghcr.io/gamergy}/socialagent-worker:${SOCIALAGENT_VERSION:?set SOCIALAGENT_VERSION in .env}
+    container_name: social-agent-worker
+    ports:
+      - "8000:8000"   # API + chat WebSocket
+      - "7900:7900"   # noVNC login/posting window
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: qwen3:8b-q4_K_M
+      # Optional: point at a PUBLIC version manifest to enable the in-app
+      # "update available" prompt. Leave unset to disable the check.
+      VERSION_MANIFEST_URL: ${VERSION_MANIFEST_URL:-}
+    volumes:
+      - worker_keys:/app/keys          # Fernet key (encrypts stored creds)
+      - worker_uploads:/app/uploads
+      - worker_data:/app/.data         # memory, sessions, settings, blocklist
+      - worker_profiles:/app/.profiles # logged-in browser profiles
+    shm_size: "2gb"
+    restart: unless-stopped
+
+  dashboard:
+    image: ${IMAGE_REPO:-ghcr.io/gamergy}/socialagent-dashboard:${SOCIALAGENT_VERSION:?set SOCIALAGENT_VERSION in .env}
+    container_name: social-agent-dashboard
+    ports:
+      - "5174:80"
+    restart: unless-stopped
+
+  model-updater:
+    image: ${IMAGE_REPO:-ghcr.io/gamergy}/socialagent-model-updater:${SOCIALAGENT_VERSION:?set SOCIALAGENT_VERSION in .env}
+    container_name: social-agent-model-updater
+    volumes:
+      - worker_data:/data
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+      - WORKER_URL=http://browser-worker:8000
+      - PINNED_MODELS=qwen3:8b-q4_K_M,gemma4:e4b
+      - UPDATE_INTERVAL_HOURS=24
+      - EXTRA_MODELS_FILE=/data/extra_models.json
+      - AUTO_SWITCH_DEFAULT=1
+      # Models manifest must be PUBLICLY fetchable (a private-repo raw URL 404s).
+      # Leave unset to just keep the PINNED_MODELS current.
+      - MANIFEST_URL=${MODELS_MANIFEST_URL:-}
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  worker_keys:
+  worker_uploads:
+  worker_data:
+  worker_profiles:
