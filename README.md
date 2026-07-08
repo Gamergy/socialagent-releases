@@ -5,25 +5,35 @@ installs everything.
 
 ## Install (Windows)
 
-1. **Download this kit**: [ZIP download](https://github.com/Gamergy/socialagent-releases/archive/refs/heads/main.zip)
-   and unzip it into a folder (anywhere is fine — the installer copies the app
-   to its own home).
-2. **Double-click `Install SocialAgent.cmd`** and approve the admin prompt.
-3. Answer the one question:
+1. **Download the installer**: [**SocialAgent-Setup.exe**](https://github.com/Gamergy/socialagent-releases/releases/latest/download/SocialAgent-Setup.exe)
+   (one file).
+2. **Double-click it** and approve the Windows permission prompt.
+3. Click through the wizard. On the one question that matters, pick:
    - **Local AI models** — free and private, ~8 GB download, best on a PC
      with a gaming GPU; or
    - **Cloud API key** — you paste a Claude (Anthropic) or OpenAI key in the
      app instead; no big download, ideal for laptops. (You can add the local
      models later from the app — Settings → Local AI models.)
+4. Paste your access token when asked (only needed while the app is private),
+   then finish.
 
 The installer takes care of Docker Desktop, Chrome, the browser helper,
-shortcuts, and the first start. **If it installs Docker for the first time it
-will ask you to restart the PC — just run the installer again afterwards; it
-continues where it left off.** While the images are private, it also asks for
-your access token.
+shortcuts, and the first start.
+
+> **First time with Docker on this PC?** The installer may need to install
+> Docker and ask you to **restart Windows**. After the restart, just run
+> **SocialAgent-Setup.exe** again — it picks up where it left off.
 
 When it finishes, a **SocialAgent** icon is on your desktop — the app lives at
-http://localhost:5174 in your browser.
+http://localhost:5174 in your browser. To remove it later: **Windows Settings →
+Apps → SocialAgent → Uninstall**.
+
+<details><summary>Prefer the manual, no-installer route?</summary>
+
+Download the [ZIP kit](https://github.com/Gamergy/socialagent-releases/archive/refs/heads/main.zip),
+unzip anywhere, and double-click `Install SocialAgent.cmd`. Same result — the
+Setup.exe is just a friendlier wrapper around these same files.
+</details>
 
 ## How logins work (worth knowing)
 
