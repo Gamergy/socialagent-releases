@@ -63,4 +63,14 @@ Set-Val 'SOCIALAGENT_VERSION' $Target
 
 docker compose --env-file $EnvFile -f $Compose pull
 docker compose --env-file $EnvFile -f $Compose up -d
+
+# Clean up old release images: keep the version now running plus the rollback
+# target; anything older is dead weight (~3 GB per stale worker image - found
+# on a client machine with 4 updates' worth of leftovers).
+$keep = @($Target, (Get-Val 'SOCIALAGENT_PREV_VERSION')) | Where-Object { $_ }
+docker images --format "{{.Repository}}:{{.Tag}}" |
+    Where-Object { $_ -match "socialagent-(worker|dashboard|model-updater):" } |
+    Where-Object { $keep -notcontains ($_ -split ":")[-1] } |
+    ForEach-Object { docker rmi $_ 2>$null | Out-Null }
+
 Write-Host "Now running $Target.  Roll back any time with: .\update.ps1 rollback"

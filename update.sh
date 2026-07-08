@@ -50,4 +50,12 @@ set_kv SOCIALAGENT_VERSION "$target"
 
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE" pull
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE" up -d
+
+# Clean up old release images: keep the running version + the rollback target.
+keep="$target|$(get SOCIALAGENT_PREV_VERSION)"
+docker images --format '{{.Repository}}:{{.Tag}}' \
+  | grep -E 'socialagent-(worker|dashboard|model-updater):' \
+  | grep -vE ":($keep)$" \
+  | xargs -r docker rmi >/dev/null 2>&1 || :
+
 echo "Now running $target.  Roll back any time with: ./update.sh rollback"

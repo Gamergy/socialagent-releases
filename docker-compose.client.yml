@@ -17,6 +17,12 @@ services:
   ollama:
     image: ollama/ollama:latest
     container_name: social-agent-ollama
+    # Local models are OPTIONAL. This service (and model-updater) only start
+    # when the "local-models" compose profile is active — the installer sets
+    # COMPOSE_PROFILES=local-models when the user picks local models, and omits
+    # it for cloud-API-key installs (saves the ~8 GB download on CPU-only PCs).
+    # The dashboard Models page can start this profile later on demand.
+    profiles: ["local-models"]
     volumes:
       - ollama_data:/root/.ollama
     environment:
@@ -49,6 +55,16 @@ services:
       # Optional: point at a PUBLIC version manifest to enable the in-app
       # "update available" prompt. Leave unset to disable the check.
       VERSION_MANIFEST_URL: ${VERSION_MANIFEST_URL:-}
+      # Host browser helper (the agent's "hands" on the user's real PC). The
+      # installer writes HELPER_TOKEN into .env; blank = no helper → the worker
+      # falls back to the in-container browser. host.docker.internal resolves
+      # to the host via the extra_hosts mapping below.
+      HELPER_URL: ${HELPER_URL:-http://host.docker.internal:8765}
+      HELPER_TOKEN: ${HELPER_TOKEN:-}
+      # 0 when the user installed in cloud-API-key mode (no local models).
+      LOCAL_MODELS: ${LOCAL_MODELS:-1}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # reach the helper on the host
     volumes:
       - worker_keys:/app/keys          # Fernet key (encrypts stored creds)
       - worker_uploads:/app/uploads
@@ -67,6 +83,7 @@ services:
   model-updater:
     image: ${IMAGE_REPO:-ghcr.io/gamergy}/socialagent-model-updater:${SOCIALAGENT_VERSION:?set SOCIALAGENT_VERSION in .env}
     container_name: social-agent-model-updater
+    profiles: ["local-models"]   # only meaningful when local models are installed
     volumes:
       - worker_data:/data
     environment:
