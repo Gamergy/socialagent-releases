@@ -1,20 +1,30 @@
 # SocialAgent uninstaller - removes EVERYTHING: containers, all data volumes
 # (agent memory, saved logins, settings), downloaded AI models, app images,
-# the browser helper, shortcuts, and the install folder. Docker Desktop and
-# Chrome are left alone (they are general-purpose programs).
-# Run via "Uninstall SocialAgent.cmd" (which copies this file to TEMP first so
-# the install folder can delete itself).
-param([string]$InstallDir = 'C:\SocialAgent')
+# the browser helper, and shortcuts. Docker Desktop and Chrome are left alone.
+#
+# Two callers:
+#   * Windows "Add or remove programs" / Setup's uninstaller runs us with
+#     -Unattended: no prompt, and we DON'T delete the install folder (Inno
+#     removes its own files - deleting them under it causes "file in use").
+#   * "Uninstall SocialAgent.cmd" (manual zip installs) runs us interactively:
+#     type YES, and we delete the folder too (having been copied to TEMP first).
+param([string]$InstallDir = 'C:\SocialAgent', [switch]$Unattended)
 $ErrorActionPreference = 'Continue'
 
-Write-Host ""
-Write-Host "=== SocialAgent uninstaller ===" -ForegroundColor Cyan
-Write-Host "This removes SocialAgent COMPLETELY from this PC:"
-Write-Host "  - the app, its containers and downloaded AI models"
-Write-Host "  - the agent's memory and settings"
-Write-Host "  - saved social/email logins"
-$sure = Read-Host "Type YES to continue"
-if ($sure -ne 'YES') { Write-Host "Cancelled - nothing was removed."; exit 0 }
+if (-not $Unattended) {
+    Write-Host ""
+    Write-Host "=== SocialAgent uninstaller ===" -ForegroundColor Cyan
+    Write-Host "This removes SocialAgent COMPLETELY from this PC:"
+    Write-Host "  - the app, its containers and downloaded AI models"
+    Write-Host "  - the agent's memory and settings"
+    Write-Host "  - saved social/email logins"
+    $sure = Read-Host "Type YES to continue"
+    if ($sure -ne 'YES') { Write-Host "Cancelled - nothing was removed."; exit 0 }
+}
+
+# 0. Sign out of the app registry and drop the saved access token.
+docker logout ghcr.io *>$null
+Remove-Item -Force -ErrorAction SilentlyContinue (Join-Path $InstallDir '.registry-token')
 
 # 1. Browser helper: process, autostart, firewall, profiles/config.
 Write-Host "Removing the browser helper..."
@@ -46,12 +56,16 @@ foreach ($n in @('SocialAgent.url', 'Update SocialAgent.lnk',
     Remove-Item -Force -ErrorAction SilentlyContinue (Join-Path $desktop $n)
 }
 
-# 5. The install folder itself (we are running from TEMP, so this works).
-Write-Host "Removing $InstallDir..."
-Set-Location $env:TEMP
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $InstallDir
+# 5. The install folder. Only when run standalone (from TEMP) - under Setup's
+#    uninstaller, Inno deletes its own files, so we must NOT (deleting them out
+#    from under the running unins000.exe is the classic "file in use" failure).
+if (-not $Unattended) {
+    Write-Host "Removing $InstallDir..."
+    Set-Location $env:TEMP
+    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $InstallDir
+}
 
 Write-Host ""
 Write-Host "=== SocialAgent has been removed ===" -ForegroundColor Green
 Write-Host "(Docker Desktop and Chrome were left installed.)"
-Read-Host "Press Enter to close"
+if (-not $Unattended) { Read-Host "Press Enter to close" }

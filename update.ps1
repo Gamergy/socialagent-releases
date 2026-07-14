@@ -61,7 +61,63 @@ else { Write-Host "Updating: $cur -> $Target" }
 if (-not $isRollback -and $cur) { Set-Val 'SOCIALAGENT_PREV_VERSION' $cur }
 Set-Val 'SOCIALAGENT_VERSION' $Target
 
+# --- Registry sign-in ---------------------------------------------------------
+# The app images are private, so `pull` needs credentials. The INSTALLER signs in
+# while ELEVATED, and Docker stores that credential PER USER - this script runs
+# NON-elevated, so it can land in a different credential store and every update
+# dies with "error from registry: denied". Sign in again here, from a token the
+# installer saved next to the stack, and only bother the user if that fails.
+$TokenFile = '.registry-token'
+function Ensure-RegistryLogin {
+    $tok = ''
+    if (Test-Path $TokenFile) { $tok = (Get-Content $TokenFile -Raw).Trim() }
+    if ($tok) {
+        $prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+        $tok | docker login ghcr.io -u Gamergy --password-stdin | Out-Null
+        $code = $LASTEXITCODE
+        $ErrorActionPreference = $prev
+        if ($code -eq 0) { return $true }
+        Write-Host "Saved access token was rejected." -ForegroundColor Yellow
+    }
+    return $false
+}
+
+Ensure-RegistryLogin | Out-Null
+
+$prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
 docker compose --env-file $EnvFile -f $Compose pull
+$pullCode = $LASTEXITCODE
+$ErrorActionPreference = $prev
+
+if ($pullCode -ne 0) {
+    Write-Host ""
+    Write-Host "Couldn't download the update - the app store rejected us." -ForegroundColor Yellow
+    Write-Host "Paste your SocialAgent access token (the GitHub 'ghp_...' one)."
+    $tok = (Read-Host "Access token").Trim()
+    if ($tok) {
+        $prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+        $tok | docker login ghcr.io -u Gamergy --password-stdin
+        $loginCode = $LASTEXITCODE
+        $ErrorActionPreference = $prev
+        if ($loginCode -ne 0) {
+            Write-Error "That token didn't work. Update cancelled - you're still on $cur."
+            exit 1
+        }
+        # Remember it so the next update is silent.
+        Set-Content $TokenFile $tok -Encoding ascii
+        $prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+        docker compose --env-file $EnvFile -f $Compose pull
+        $pullCode = $LASTEXITCODE
+        $ErrorActionPreference = $prev
+    }
+}
+if ($pullCode -ne 0) {
+    # Leave .env pointing at the version that still works.
+    Set-Val 'SOCIALAGENT_VERSION' $cur
+    Write-Error "Update failed - nothing was changed. You're still on $cur."
+    exit 1
+}
+
 docker compose --env-file $EnvFile -f $Compose up -d
 
 # Clean up old release images: keep the version now running plus the rollback
