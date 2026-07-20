@@ -1,1 +1,1 @@
-{"latest": "0.3.1", "notes": "Installing a local model now asks first and shows real progress the whole way - including the ~3 GB engine download that used to happen invisibly (the Install button looked frozen). Only the model you pick is downloaded."}
+{"latest": "0.3.2", "notes": "Cleaner update banner - one line and a button. What an update changes now shows inside the update window itself and in Settings, and the Settings version panel always reflects the newest release."}
