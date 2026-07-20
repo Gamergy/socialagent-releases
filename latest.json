@@ -1,1 +1,1 @@
-{"latest": "0.2.7"}
+{"latest": "0.3.0", "notes": "One-click updates: the blue banner and Settings can now install updates for you, with live progress - the app reloads itself when done. Settings shows how much space SocialAgent uses, plus rollback and full uninstall. The installer has a real progress bar, one desktop shortcut, and always honors your cloud/local choice. Updates no longer re-download the 3 GB AI engine. LinkedIn is paused for now."}
