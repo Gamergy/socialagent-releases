@@ -1,1 +1,1 @@
-{"latest": "0.3.2", "notes": "Cleaner update banner - one line and a button. What an update changes now shows inside the update window itself and in Settings, and the Settings version panel always reflects the newest release."}
+{"latest": "0.3.3", "notes": "Uninstall from Settings now works: Windows asks for permission (choose Yes) and the dashboard tracks that the removal is really happening instead of just claiming it. Get the new Setup.exe (reinstall over the top) for the full fix."}
