@@ -1,1 +1,1 @@
-{"latest": "0.3.5", "notes": "The SocialAgent mascot now appears throughout: the browser tab icon, the top-left brand, new-chat and agent message avatars, and the desktop shortcut icon. Get the new Setup.exe (reinstall over the top) for the branded shortcut."}
+{"latest": "0.3.6", "notes": "Update checks now use a CDN mirror alongside GitHub, so a new version appears in the dashboard within seconds of release instead of waiting on GitHub's cache. (Also included: the SocialAgent mascot across the app and the model-identity answer from earlier releases.)"}
