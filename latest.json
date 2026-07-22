@@ -1,1 +1,1 @@
-{"latest": "0.3.3", "notes": "Uninstall from Settings now works: Windows asks for permission (choose Yes) and the dashboard tracks that the removal is really happening instead of just claiming it. Get the new Setup.exe (reinstall over the top) for the full fix."}
+{"latest": "0.3.4", "notes": "Ask the agent which AI model it is running on and the answer now comes from the engine itself: the exact model id used for that very reply, plus what the provider confirmed for the previous one. Switching Haiku/Sonnet/Opus is now verifiable live in chat."}
