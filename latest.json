@@ -1,1 +1,1 @@
-{"latest": "0.3.4", "notes": "Ask the agent which AI model it is running on and the answer now comes from the engine itself: the exact model id used for that very reply, plus what the provider confirmed for the previous one. Switching Haiku/Sonnet/Opus is now verifiable live in chat."}
+{"latest": "0.3.5", "notes": "The SocialAgent mascot now appears throughout: the browser tab icon, the top-left brand, new-chat and agent message avatars, and the desktop shortcut icon. Get the new Setup.exe (reinstall over the top) for the branded shortcut."}
