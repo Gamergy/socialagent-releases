@@ -1,1 +1,1 @@
-{"latest": "0.3.6", "notes": "Update checks now use a CDN mirror alongside GitHub, so a new version appears in the dashboard within seconds of release instead of waiting on GitHub's cache. (Also included: the SocialAgent mascot across the app and the model-identity answer from earlier releases.)"}
+{"latest": "0.3.7", "notes": "Dashboard updates now take effect on a normal reload - no more manual hard-refresh to see new UI. (This release also carries the SocialAgent mascot across the app, if you were still seeing the old \"S\".)"}
