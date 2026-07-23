@@ -1,1 +1,1 @@
-{"latest": "0.3.7", "notes": "Dashboard updates now take effect on a normal reload - no more manual hard-refresh to see new UI. (This release also carries the SocialAgent mascot across the app, if you were still seeing the old \"S\".)"}
+{"latest": "0.3.8", "notes": "Uninstall now works even when Windows' own uninstaller for the app is damaged: SocialAgent falls back to its full cleanup routine, removing the app, its data and its Add/Remove Programs entry."}
