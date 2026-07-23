@@ -1,1 +1,1 @@
-{"latest": "0.3.8", "notes": "Uninstall now works even when Windows' own uninstaller for the app is damaged: SocialAgent falls back to its full cleanup routine, removing the app, its data and its Add/Remove Programs entry."}
+{"latest": "0.3.9", "notes": "Settings now shows whether the companion app (the part that runs on Windows and drives your browser) is up to date, with a direct download link - it is not replaced by the in-app update, so fixes that live in it need the installer."}
