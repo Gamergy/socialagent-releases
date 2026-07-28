@@ -1,1 +1,1 @@
-{"latest": "0.3.17", "notes": "v0.3.17 \u2014 social tools return real information; accounts have real names again"}
+{"latest": "0.3.18", "notes": "v0.3.18 \u2014 the private browser is downloaded during setup, so logins actually use it. Connect no longer shows the card twice. The setup interview runs on first launch and can be skipped. Connections shows your real @handle instead of instagram@local. The agent can say what changed in the version you are on. Email can now archive, junk or bin mail, with a preview first."}
