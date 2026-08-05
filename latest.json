@@ -1,1 +1,10 @@
-{"latest": "0.3.18", "notes": "v0.3.18 \u2014 the private browser is downloaded during setup, so logins actually use it. Connect no longer shows the card twice. The setup interview runs on first launch and can be skipped. Connections shows your real @handle instead of instagram@local. The agent can say what changed in the version you are on. Email can now archive, junk or bin mail, with a preview first."}
+{
+  "latest": "0.3.21",
+  "notes": "v0.3.21 - the first release since 0.3.18 that updates the app itself (0.3.19 and 0.3.20 only replaced the installer). The agent can open a browser you can see and read the page you are on. Setup asks its questions properly and remembers your answers. It runs as a real desktop app and picks ports that are free. Fixed: every Docker launch reported failure even when everything came up fine; LinkedIn was listed as connected while paused; Settings called the companion app up to date while the update button said to reinstall it.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.21",
+  "helper": {
+    "version": "0.5.0",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.21/SocialAgentHelper.exe",
+    "sha256": "ed0fb48c6050fa8ce5c7f68db60cac76eb0be61a692080b890314a0bee160cb1"
+  }
+}
