@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.21",
-  "notes": "v0.3.21 - the first release since 0.3.18 that updates the app itself (0.3.19 and 0.3.20 only replaced the installer). The agent can open a browser you can see and read the page you are on. Setup asks its questions properly and remembers your answers. It runs as a real desktop app and picks ports that are free. Fixed: every Docker launch reported failure even when everything came up fine; LinkedIn was listed as connected while paused; Settings called the companion app up to date while the update button said to reinstall it.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.21",
+  "latest": "0.3.22",
+  "notes": "v0.3.22 - SocialAgent opens as its own window again instead of a browser tab, and the option to add it to your Start Menu is back with it. Settings now says where the desktop app stands. Updating covers everything and finishes: when the companion app was behind, the update replaced it and stopped there without updating the app itself, while reporting success. If your companion app is too old to replace itself, that is now what it says, with a download button.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.22",
   "helper": {
     "version": "0.5.0",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.21/SocialAgentHelper.exe",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.22/SocialAgentHelper.exe",
     "sha256": "ed0fb48c6050fa8ce5c7f68db60cac76eb0be61a692080b890314a0bee160cb1"
   }
 }
