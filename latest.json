@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.22",
-  "notes": "v0.3.22 - SocialAgent opens as its own window again instead of a browser tab, and the option to add it to your Start Menu is back with it. Settings now says where the desktop app stands. Updating covers everything and finishes: when the companion app was behind, the update replaced it and stopped there without updating the app itself, while reporting success. If your companion app is too old to replace itself, that is now what it says, with a download button.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.22",
+  "latest": "0.3.23",
+  "notes": "v0.3.23 - updates apply themselves now. After updating you were still looking at the old interface until you pressed Ctrl+Shift+R: every file the app loads now carries the version in its address, and the page waits for the dashboard itself to come back before reloading instead of reloading when the agent answered. Also: \"shut down everything\" no longer tells you to reinstall for something no installer has ever been able to do - it now says what is true and points at quitting Docker Desktop from the tray. Stopping it from the button is the next release.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.23",
   "helper": {
     "version": "0.5.0",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.22/SocialAgentHelper.exe",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.23/SocialAgentHelper.exe",
     "sha256": "ed0fb48c6050fa8ce5c7f68db60cac76eb0be61a692080b890314a0bee160cb1"
   }
 }
