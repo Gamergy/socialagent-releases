@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.26",
-  "notes": "v0.3.26 - your TikTok username was someone else's: it was read off the For You feed, so it captured whoever's video was playing, and re-checking kept the same wrong name. It now asks TikTok who it thinks is signed in, and says so when it cannot read the page. Re-checking one account no longer opens all of them. The login window has no warning bar. Every launch starts a fresh chat - it used to reopen your last conversation while showing an empty screen, so answers came from history you could not see. Connection errors no longer appear as messages from the agent. Chat results are titles you click instead of walls of text.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.26",
+  "latest": "0.3.27",
+  "notes": "v0.3.27 - a failed update can no longer leave you without the companion app. The last one died with \"Failed to load Python DLL\": the new build could not unpack itself, and because the working copy had already been overwritten there was nothing to go back to. It now keeps the old copy until the new one has proved it answers, retries the launch three times in case a virus scanner is holding a brand-new file, and restores and restarts the old one if the new one never comes up. Also: the agent now knows which of the things it remembers came from your setup interview.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.27",
   "helper": {
-    "version": "0.5.3",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.26/SocialAgentHelper.exe",
-    "sha256": "4967f9328c343d575c790b82e0281df10fc7937cdd654dd8acbbc464a2ef4d76"
+    "version": "0.5.4",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.27/SocialAgentHelper.exe",
+    "sha256": "717871ee2782470ecd11756fb81d1bf3c5d0a2f613d35e983ad7cf0afca7d965"
   }
 }
