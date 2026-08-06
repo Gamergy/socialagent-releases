@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.25",
-  "notes": "v0.3.25 - fixes what the last update did on screen. Updating the companion app was throwing a black terminal onto your desktop and leaving it there; the flag meant to hide it was the reason it appeared. A stuck update no longer sits at 97% in silence - it counts the seconds, says when it is waiting, and after three minutes tells you it did not come back and how to fix it. And \"shut down everything\" no longer reports success when it could not reach Docker to check.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.25",
+  "latest": "0.3.26",
+  "notes": "v0.3.26 - your TikTok username was someone else's: it was read off the For You feed, so it captured whoever's video was playing, and re-checking kept the same wrong name. It now asks TikTok who it thinks is signed in, and says so when it cannot read the page. Re-checking one account no longer opens all of them. The login window has no warning bar. Every launch starts a fresh chat - it used to reopen your last conversation while showing an empty screen, so answers came from history you could not see. Connection errors no longer appear as messages from the agent. Chat results are titles you click instead of walls of text.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.26",
   "helper": {
-    "version": "0.5.2",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.25/SocialAgentHelper.exe",
-    "sha256": "849aa0fed251f3032f5d4e885a47534400db822ee34adf1f6a9c6d2246ebe74e"
+    "version": "0.5.3",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.26/SocialAgentHelper.exe",
+    "sha256": "4967f9328c343d575c790b82e0281df10fc7937cdd654dd8acbbc464a2ef4d76"
   }
 }
