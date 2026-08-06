@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.23",
-  "notes": "v0.3.23 - updates apply themselves now. After updating you were still looking at the old interface until you pressed Ctrl+Shift+R: every file the app loads now carries the version in its address, and the page waits for the dashboard itself to come back before reloading instead of reloading when the agent answered. Also: \"shut down everything\" no longer tells you to reinstall for something no installer has ever been able to do - it now says what is true and points at quitting Docker Desktop from the tray. Stopping it from the button is the next release.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.23",
+  "latest": "0.3.24",
+  "notes": "v0.3.24 - the agent can work with your chats: search what was said inside them, rename them, and file them into folders (it shows you which ones it would move first). Folders appear in the sidebar, and chats are grouped Today / Yesterday / This week / This month / Last month / Older. \"Shut down everything\" now really stops the app - it had quietly done nothing on Docker for months while reporting success. Messages you have to act on stay until you close them, and the update notice appears on its own again in the installed app.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.24",
   "helper": {
-    "version": "0.5.0",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.23/SocialAgentHelper.exe",
-    "sha256": "ed0fb48c6050fa8ce5c7f68db60cac76eb0be61a692080b890314a0bee160cb1"
+    "version": "0.5.1",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.24/SocialAgentHelper.exe",
+    "sha256": "9bf8fa10096de93573116ea8652571809e4a9ec7e2c2807aee3a5f4735697948"
   }
 }
