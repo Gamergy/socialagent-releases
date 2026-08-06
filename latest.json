@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.24",
-  "notes": "v0.3.24 - the agent can work with your chats: search what was said inside them, rename them, and file them into folders (it shows you which ones it would move first). Folders appear in the sidebar, and chats are grouped Today / Yesterday / This week / This month / Last month / Older. \"Shut down everything\" now really stops the app - it had quietly done nothing on Docker for months while reporting success. Messages you have to act on stay until you close them, and the update notice appears on its own again in the installed app.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.24",
+  "latest": "0.3.25",
+  "notes": "v0.3.25 - fixes what the last update did on screen. Updating the companion app was throwing a black terminal onto your desktop and leaving it there; the flag meant to hide it was the reason it appeared. A stuck update no longer sits at 97% in silence - it counts the seconds, says when it is waiting, and after three minutes tells you it did not come back and how to fix it. And \"shut down everything\" no longer reports success when it could not reach Docker to check.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.25",
   "helper": {
-    "version": "0.5.1",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.24/SocialAgentHelper.exe",
-    "sha256": "9bf8fa10096de93573116ea8652571809e4a9ec7e2c2807aee3a5f4735697948"
+    "version": "0.5.2",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.25/SocialAgentHelper.exe",
+    "sha256": "849aa0fed251f3032f5d4e885a47534400db822ee34adf1f6a9c6d2246ebe74e"
   }
 }
