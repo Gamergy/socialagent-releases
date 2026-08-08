@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.28",
-  "notes": "v0.3.28 - fixes the \"Failed to load Python DLL\" error that broke the last two updates. It was not a corrupt download: the companion app unpacks itself into a temporary folder and told the new version to reuse it, then deleted that folder as it closed - so the new build looked for its runtime somewhere that no longer existed. It is now started with a clean environment. If your companion app is currently broken, run the installer once; the part that performs an update is the version you are updating FROM, so this protects updates from here on.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.28",
+  "latest": "0.3.29",
+  "notes": "v0.3.29 - setup no longer claims it is downloading Docker Desktop when your PC already has it. It never was installing a second copy: it skips Docker when it finds one, and uninstalling can never remove a Docker you installed yourself. The progress line was showing the same Docker explanation for every step; it now matches the step actually running.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.29",
   "helper": {
     "version": "0.5.5",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.28/SocialAgentHelper.exe",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.29/SocialAgentHelper.exe",
     "sha256": "707d5c731c904e87df51706ada0b84c4a394db3a6d3c4c6e6e05dbee4605fc60"
   }
 }
