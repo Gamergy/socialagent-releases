@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.29",
-  "notes": "v0.3.29 - setup no longer claims it is downloading Docker Desktop when your PC already has it. It never was installing a second copy: it skips Docker when it finds one, and uninstalling can never remove a Docker you installed yourself. The progress line was showing the same Docker explanation for every step; it now matches the step actually running.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.29",
+  "latest": "0.3.30",
+  "notes": "v0.3.30 - OpenAI keys work again. Every message was failing on newer OpenAI models: the model applies a reasoning setting of its own, which the API then refuses alongside the agent's tools. The app now retries the way OpenAI's own error asks it to. Also: adding SocialAgent to your Start Menu left two icons that looked identical and behaved differently - the one Windows created skipped the startup steps, so Docker and the browser helper never loaded. Both icons now do the same thing, and existing duplicates are repaired on the next start.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.30",
   "helper": {
     "version": "0.5.5",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.29/SocialAgentHelper.exe",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.30/SocialAgentHelper.exe",
     "sha256": "707d5c731c904e87df51706ada0b84c4a394db3a6d3c4c6e6e05dbee4605fc60"
   }
 }
