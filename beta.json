@@ -1,7 +1,7 @@
 {
-  "latest": "0.3.33",
-  "notes": "v0.3.33 - local model settings, and the shortcuts that did nothing\n\nNEW: a \"Local models\" screen (/models in the sidebar, below /memory). Per\nmodel it shows what each context window actually costs in memory on THIS PC -\nweights plus conversation cache, summed - and colours each size by whether it\nfits your graphics card, spills into system RAM, or will not load. It\nrecommends a size from your real RAM and VRAM, and shows nothing at all if it\ncould not read them rather than guessing. Reasoning and keep-alive are\nswitchable per model too. Installing and uninstalling models moved here from\nSettin",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.33",
+  "latest": "0.3.34",
+  "notes": "v0.3.34 - the shutdown icon, and less to read on Local models\n\nFIXED: the power emblem on \"Shut down everything\" was not centred, and it was\nnever going to be. It was a text character (U+23FB) that the app's font has no\nglyph for, so Windows quietly substituted another font - which decided its\nsize, weight and position, and on a PC without that font would have shown an\nempty box instead of an icon. It is drawn now, so it sits in the middle on\nevery machine.\n\nCHANGED: the Local models screen said too much. Roughly half the text is gone.\nNothing was dropped that the screen needs to be honest abo",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.34",
   "helper": {
     "version": "0.5.8",
     "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.33/SocialAgentHelper.exe",
