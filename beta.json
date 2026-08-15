@@ -1,0 +1,10 @@
+{
+  "latest": "0.3.33",
+  "notes": "v0.3.33 - local model settings, and the shortcuts that did nothing\n\nNEW: a \"Local models\" screen (/models in the sidebar, below /memory). Per\nmodel it shows what each context window actually costs in memory on THIS PC -\nweights plus conversation cache, summed - and colours each size by whether it\nfits your graphics card, spills into system RAM, or will not load. It\nrecommends a size from your real RAM and VRAM, and shows nothing at all if it\ncould not read them rather than guessing. Reasoning and keep-alive are\nswitchable per model too. Installing and uninstalling models moved here from\nSettin",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.33",
+  "helper": {
+    "version": "0.5.8",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.33/SocialAgentHelper.exe",
+    "sha256": "8b83174730b22f0fa2b988581f3b7abab4fc2b7b70d2ade6ca63ecdd0790ad37"
+  }
+}
