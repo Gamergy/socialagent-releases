@@ -1,7 +1,7 @@
 {
-  "latest": "0.3.35",
-  "notes": "v0.3.35 - the memory figures are measured now, not guessed\n\nFIXED: Local models said gemma4:e4b at 32K \"won't fit - 15.2 GB\". It loads in\n3.26 GB, entirely on an 8 GB card. The old figure was an upper bound, and an\nupper bound was being used to rule a setting out - it can prove something\nfits, never that it doesn't. Two things made the bound so loose for this\nmodel: an E4B doesn't load its vision and audio parts for text, so its file\nsize is about three times what it actually uses; and it only keeps part of the\nconversation in memory, so a bigger context costs almost nothing.\n\nNEW: the screen ",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.35",
+  "latest": "0.3.36",
+  "notes": "v0.3.36 - the memory figures correct themselves properly now\n\nFollow-up to 0.3.35. After one real load, the screen was still using the\ndisproved arithmetic to work out the OTHER context sizes - so a measured\nmodel could show a smaller context costing less than the measurement it came\nfrom. Sizes at or below something you have actually run are now reported from\nthat run, and anything above it is clearly an upper bound rather than a guess\ndressed up as a figure.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.36",
   "helper": {
     "version": "0.5.8",
     "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.33/SocialAgentHelper.exe",
