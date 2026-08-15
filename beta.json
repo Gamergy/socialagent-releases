@@ -1,7 +1,7 @@
 {
-  "latest": "0.3.34",
-  "notes": "v0.3.34 - the shutdown icon, and less to read on Local models\n\nFIXED: the power emblem on \"Shut down everything\" was not centred, and it was\nnever going to be. It was a text character (U+23FB) that the app's font has no\nglyph for, so Windows quietly substituted another font - which decided its\nsize, weight and position, and on a PC without that font would have shown an\nempty box instead of an icon. It is drawn now, so it sits in the middle on\nevery machine.\n\nCHANGED: the Local models screen said too much. Roughly half the text is gone.\nNothing was dropped that the screen needs to be honest abo",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.34",
+  "latest": "0.3.35",
+  "notes": "v0.3.35 - the memory figures are measured now, not guessed\n\nFIXED: Local models said gemma4:e4b at 32K \"won't fit - 15.2 GB\". It loads in\n3.26 GB, entirely on an 8 GB card. The old figure was an upper bound, and an\nupper bound was being used to rule a setting out - it can prove something\nfits, never that it doesn't. Two things made the bound so loose for this\nmodel: an E4B doesn't load its vision and audio parts for text, so its file\nsize is about three times what it actually uses; and it only keeps part of the\nconversation in memory, so a bigger context costs almost nothing.\n\nNEW: the screen ",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.35",
   "helper": {
     "version": "0.5.8",
     "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.33/SocialAgentHelper.exe",
