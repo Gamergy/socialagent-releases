@@ -1,7 +1,7 @@
 {
-  "latest": "0.3.36",
-  "notes": "v0.3.36 - the memory figures correct themselves properly now\n\nFollow-up to 0.3.35. After one real load, the screen was still using the\ndisproved arithmetic to work out the OTHER context sizes - so a measured\nmodel could show a smaller context costing less than the measurement it came\nfrom. Sizes at or below something you have actually run are now reported from\nthat run, and anything above it is clearly an upper bound rather than a guess\ndressed up as a figure.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.36",
+  "latest": "0.3.37",
+  "notes": "v0.3.37 - \"Turn off\" now shows that it worked\n\nThe button that switches local models off was doing its job - it rewrites the\napp's settings file - but the running app can only read that file when it\nstarts, so the screen kept showing local models as on and offered the same\nbutton again. It now says they are off and that restarting finishes the job.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.37",
   "helper": {
     "version": "0.5.8",
     "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.33/SocialAgentHelper.exe",
