@@ -1,7 +1,7 @@
 {
-  "latest": "0.3.39",
-  "notes": "v0.3.39 - the companion app wears our icon\n\nThe background companion app was showing Python's logo in Task Manager and the\ntray, because the build never told it otherwise. It now carries the SocialAgent\nicon, the same one on your desktop shortcut. Nothing else changed - the app\nupdates its companion automatically.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.39",
+  "latest": "0.3.40",
+  "notes": "v0.3.40 - capitals on the sidebar labels\n\nThe three links under the chat list now read \"What the agent knows\", \"Models\non this PC\" and \"Settings\" instead of starting lowercase.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.40",
   "helper": {
     "version": "0.5.9",
     "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.39/SocialAgentHelper.exe",
