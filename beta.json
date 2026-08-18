@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.38",
-  "notes": "v0.3.38 - typed commands, Docker's window, and back/forward\n\nFIXED: typing a slash command sent it to the AI. /models was meant to open the\nlocal models screen and instead the agent answered by naming itself. The typed\ncommand surface is gone - those places are all buttons, and the labels no\nlonger pretend otherwise.\n\nFIXED: Docker Desktop's window appeared for several seconds when the app\nstarted it on a cold boot. It now stays off screen - unless you already had\nDocker Desktop open, in which case your window is left exactly as it is.\n\nNEW: your mouse's back and forward buttons move between s",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.38",
+  "latest": "0.3.39",
+  "notes": "v0.3.39 - the companion app wears our icon\n\nThe background companion app was showing Python's logo in Task Manager and the\ntray, because the build never told it otherwise. It now carries the SocialAgent\nicon, the same one on your desktop shortcut. Nothing else changed - the app\nupdates its companion automatically.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.39",
   "helper": {
-    "version": "0.5.8",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.33/SocialAgentHelper.exe",
-    "sha256": "8b83174730b22f0fa2b988581f3b7abab4fc2b7b70d2ade6ca63ecdd0790ad37"
+    "version": "0.5.9",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.39/SocialAgentHelper.exe",
+    "sha256": "5e96c3b406fe3d09651c52eb5ffbee6671316aeaac941fc95d98bcbdb5b3616c"
   }
 }
