@@ -1,7 +1,7 @@
 {
-  "latest": "0.3.37",
-  "notes": "v0.3.37 - \"Turn off\" now shows that it worked\n\nThe button that switches local models off was doing its job - it rewrites the\napp's settings file - but the running app can only read that file when it\nstarts, so the screen kept showing local models as on and offered the same\nbutton again. It now says they are off and that restarting finishes the job.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.37",
+  "latest": "0.3.38",
+  "notes": "v0.3.38 - typed commands, Docker's window, and back/forward\n\nFIXED: typing a slash command sent it to the AI. /models was meant to open the\nlocal models screen and instead the agent answered by naming itself. The typed\ncommand surface is gone - those places are all buttons, and the labels no\nlonger pretend otherwise.\n\nFIXED: Docker Desktop's window appeared for several seconds when the app\nstarted it on a cold boot. It now stays off screen - unless you already had\nDocker Desktop open, in which case your window is left exactly as it is.\n\nNEW: your mouse's back and forward buttons move between s",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.38",
   "helper": {
     "version": "0.5.8",
     "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.33/SocialAgentHelper.exe",
