@@ -1,10 +1,10 @@
 {
-  "latest": "0.3.31",
-  "notes": "v0.3.31 - reinstalling no longer skips the setup interview. Your browser keeps notes about the app that survive uninstalling it, so a fresh install found a leftover \"interview already done\" note, marked it done on the empty new install, and skipped it - leaving the agent knowing nothing about your business and unaware an interview existed. That note is now only trusted when the app actually knows your business.",
-  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.31",
+  "latest": "0.3.40",
+  "notes": "v0.3.40 - capitals on the sidebar labels\n\nThe three links under the chat list now read \"What the agent knows\", \"Models\non this PC\" and \"Settings\" instead of starting lowercase.",
+  "notes_url": "https://github.com/Gamergy/socialagent-releases/releases/tag/v0.3.40",
   "helper": {
-    "version": "0.5.5",
-    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.31/SocialAgentHelper.exe",
-    "sha256": "707d5c731c904e87df51706ada0b84c4a394db3a6d3c4c6e6e05dbee4605fc60"
+    "version": "0.5.9",
+    "url": "https://github.com/Gamergy/socialagent-releases/releases/download/v0.3.39/SocialAgentHelper.exe",
+    "sha256": "5e96c3b406fe3d09651c52eb5ffbee6671316aeaac941fc95d98bcbdb5b3616c"
   }
 }
